@@ -27,6 +27,7 @@ function App() {
             user={user}
             onAddFavorite={(user) => handleAddFavorite(user)}
             onRemoveFavorite={(user) => handleRemoveFavorite(user)}
+            isFavorite={favorites.has(user.id)}
           />
         )}
         <h1>Favoritos</h1>
@@ -44,6 +45,7 @@ function App() {
                 user={user}
                 onAddFavorite={(user) => handleAddFavorite(user)}
                 onRemoveFavorite={(user) => handleRemoveFavorite(user)}
+                isFavorite={favorites.has(user.id)}
               />
             ))}
           </div>
