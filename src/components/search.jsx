@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-const API_URL = "http://192.168.1.227:3000/api";
+const API_URL = "https://api.github.com/users/";
 
 const getUser = async (username) => {
-  const res = await fetch(
-    `https://mocki.io/v1/433bbc62-fee5-4109-88e5-a735097e868f`
-  );
+  const res = await fetch(`${API_URL}${username}`);
   const data = await res.json();
 
   if (!res.ok) {

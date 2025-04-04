@@ -11,6 +11,12 @@ function App() {
     setFavorites(newFavorites);
   };
 
+  const handleRemoveFavorite = (user) => {
+    const newFavorites = new Map(favorites);
+    newFavorites.delete(user.id);
+    setFavorites(newFavorites);
+  };
+
   return (
     <>
       <div className="container">
@@ -20,16 +26,24 @@ function App() {
           <UserCard
             user={user}
             onAddFavorite={(user) => handleAddFavorite(user)}
+            onRemoveFavorite={(user) => handleRemoveFavorite(user)}
           />
         )}
         <h1>Favoritos</h1>
         {favorites.size > 0 && (
-          <div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "20px",
+            }}
+          >
             {Array.from(favorites.values()).map((user) => (
               <UserCard
                 key={user.id}
                 user={user}
                 onAddFavorite={(user) => handleAddFavorite(user)}
+                onRemoveFavorite={(user) => handleRemoveFavorite(user)}
               />
             ))}
           </div>

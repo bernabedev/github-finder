@@ -1,4 +1,4 @@
-export default function UserCard({ user, onAddFavorite }) {
+export default function UserCard({ user, onAddFavorite, onRemoveFavorite }) {
   return (
     <div className="user-card">
       <img src={user.avatar_url} alt={user.name} />
@@ -7,6 +7,9 @@ export default function UserCard({ user, onAddFavorite }) {
       <p className="bio">{user.bio}</p>
 
       <button onClick={() => onAddFavorite(user)}>Agregar a favoritos</button>
+      <button onClick={() => onRemoveFavorite(user)}>
+        Eliminar de favoritos
+      </button>
     </div>
   );
 }
